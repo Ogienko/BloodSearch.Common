@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BloodSearchModelsRemoteProvider.cs" />
+    <Compile Include="Models\Offers\CategoryEnum.cs" />
     <Compile Include="Models\Offers\OfferModel.cs" />
     <Compile Include="Models\Offers\OfferStateEnum.cs" />
     <Compile Include="Models\Offers\OfferTypeEnum.cs" />

@@ -7,8 +7,8 @@ namespace BloodSearch.Models.Api.Models.Offers.Requests {
         [JsonProperty("id")]
         public long? Id { get; set; }
 
-        [JsonProperty("source")]
-        public OfferTypeEnum Source { get; set; }
+        [JsonProperty("type")]
+        public OfferTypeEnum Type { get; set; }
 
         [JsonProperty("user-id")]
         public int? UserId { get; set; }
