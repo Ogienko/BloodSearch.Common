@@ -22,5 +22,11 @@ namespace BloodSearch.Models.Api {
             var str = ApiProvider.ExecuteGetAsStringSync(url);
             return JsonConvert.DeserializeObject<GetOfferResult>(str);
         }
+
+        public static GetOffersResult GetOffers(GetOffersByFiltersParameters parameters) {
+            var url = $"{SchemeAndHost}/api/offers/get-offers";
+            var jData = JsonConvert.SerializeObject(parameters);
+            return ApiProvider.ExecutePostSync<GetOffersResult>(url, jData);
+        }
     }
 }

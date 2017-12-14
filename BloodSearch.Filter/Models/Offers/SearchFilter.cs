@@ -30,6 +30,6 @@ namespace BloodSearch.Filter.Models.Offers {
         public SortEnum Sort { get; set; } = SortEnum.Default;
 
         [JsonProperty("statuses")]
-        public string[] Statuses { get; set; } = { "published" };
+        public List<OfferStateEnum> Statuses { get; set; } = new List<OfferStateEnum>() { };
     }
 }

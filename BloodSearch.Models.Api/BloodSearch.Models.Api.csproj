@@ -33,6 +33,9 @@
     <Reference Include="BloodSearch.Core">
       <HintPath>..\BloodSearch.Core\bin\Debug\BloodSearch.Core.dll</HintPath>
     </Reference>
+    <Reference Include="BloodSearch.Filter">
+      <HintPath>..\BloodSearch.Filter\bin\Debug\BloodSearch.Filter.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -55,6 +58,8 @@
     <Compile Include="Models\Offers\Requests\AddOfferModel.cs" />
     <Compile Include="Models\Offers\Requests\AddOfferResult.cs" />
     <Compile Include="Models\Offers\Requests\GetOfferResult.cs" />
+    <Compile Include="Models\Offers\Requests\GetOffersByFiltersParameters.cs" />
+    <Compile Include="Models\Offers\Requests\GetOffersResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -10,11 +10,13 @@ namespace BloodSearch.Filter.Utils {
         public static ParseFilterResult ParseFilterFromQueryParameters(QueryParameters qParams) {
 
             var filter = new SearchFilter {
-                Type = qParams.Type.ToEnum(OfferTypeEnum.Donor),
                 Categories = qParams.Cat.SplitInt().Select(x => MapCategory(x)).ToList(),
                 Cities = qParams.Ct.SplitInt(),
                 Sort = qParams.Sort.ToEnum(SearchFilter.SortEnum.Default),
+                Type = qParams.Type.ToEnum(OfferTypeEnum.Donor)
             };
+
+            filter.Statuses.Add(OfferStateEnum.Published);
 
             var maxRows = 2000;
             var pagingFilter = new PagingFilter();
@@ -26,12 +28,12 @@ namespace BloodSearch.Filter.Utils {
                 pagingFilter.PageNumber = pagingFilter.MaxPageNumber;
             }
 
-            var ret = new ParseFilterResult {
+            var result = new ParseFilterResult {
                 Filter = filter,
                 PagingFilter = pagingFilter
             };
 
-            return ret;
+            return result;
         }
 
         private static CategoryEnum MapCategory(int category) {
