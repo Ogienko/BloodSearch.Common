@@ -51,6 +51,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BloodSearchModelsRemoteProvider.cs" />
+    <Compile Include="Models\Geo\GeoCoderMeta.cs" />
+    <Compile Include="Models\Geo\GeoPoint.cs" />
     <Compile Include="Models\Offers\CategoryEnum.cs" />
     <Compile Include="Models\Offers\OfferModel.cs" />
     <Compile Include="Models\Offers\OfferStateEnum.cs" />
@@ -65,5 +67,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
