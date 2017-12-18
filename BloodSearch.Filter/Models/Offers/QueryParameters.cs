@@ -15,9 +15,9 @@ namespace BloodSearch.Filter.Models.Offers {
         public string Cat { get; set; }
 
         /// <summary>
-        /// Город
+        /// Id региона
         /// </summary>
-        public string Ct { get; set; }
+        public string Reg { get; set; }
 
         public string Sort { get; set; }
 

@@ -42,6 +42,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -51,7 +52,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BloodSearchModelsRemoteProvider.cs" />
-    <Compile Include="Models\Geo\GeoCoderMeta.cs" />
+    <Compile Include="Models\Auth\Request\LoginModel.cs" />
+    <Compile Include="Models\Auth\Request\RegistrationModel.cs" />
+    <Compile Include="Models\Auth\ResponseError.cs" />
+    <Compile Include="Models\Auth\Response\LoginResult.cs" />
+    <Compile Include="Models\Geo\GeoAddress.cs" />
     <Compile Include="Models\Geo\GeoPoint.cs" />
     <Compile Include="Models\Offers\CategoryEnum.cs" />
     <Compile Include="Models\Offers\OfferModel.cs" />

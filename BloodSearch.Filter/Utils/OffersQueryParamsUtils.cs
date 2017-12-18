@@ -11,7 +11,7 @@ namespace BloodSearch.Filter.Utils {
 
             var filter = new SearchFilter {
                 Categories = qParams.Cat.SplitInt().Select(x => MapCategory(x)).ToList(),
-                Cities = qParams.Ct.SplitInt(),
+                Region = qParams.Reg.ToPositiveInt() ?? 1,
                 Sort = qParams.Sort.ToEnum(SearchFilter.SortEnum.Default),
                 Type = qParams.Type.ToEnum(OfferTypeEnum.Donor)
             };

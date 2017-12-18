@@ -23,7 +23,7 @@ namespace BloodSearch.Filter.Models.Offers {
         public List<long> ItemsIds { get; set; } = new List<long>();
 
         [JsonProperty("cities")]
-        public List<int> Cities { get; set; } = new List<int>();
+        public long Region { get; set; }
 
         [JsonProperty("sort")]
         [JsonConverter(typeof(StringEnumConverter))]

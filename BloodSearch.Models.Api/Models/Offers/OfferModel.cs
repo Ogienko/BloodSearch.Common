@@ -32,6 +32,6 @@ namespace BloodSearch.Models.Api.Models.Offers {
         public string Email { get; set; }
 
         [JsonProperty("geo-coder-meta")]
-        public GeoCoderMeta GeoCoderMeta { get; set; }
+        public GeoAddress GeoAddress { get; set; }
     }
 }
