@@ -5,16 +5,17 @@ using BloodSearch.Models.Api.Models.Auth.Request;
 using BloodSearch.Models.Api.Models.Auth.Response;
 using BloodSearch.Models.Api.Models.Offers.Requests;
 using Newtonsoft.Json;
+using System;
 using System.Web;
 
 namespace BloodSearch.Models.Api {
 
     public class BloodSearchModelsRemoteProvider {
 
-        private const int CacheDurationInMinutes = 15;
         private const string SchemeAndHostConfigName = "BloodSearch.Models.Api.SchemeAndHost";
         private static readonly string SchemeAndHost = ConfigProvider.Get(SchemeAndHostConfigName);
 
+        #region Offers
         public static AddOfferResult AddOfferSync(AddOfferModel model) {
             var url = $"{SchemeAndHost}/api/offers/add-offer";
             var jData = JsonConvert.SerializeObject(model);
@@ -32,9 +33,18 @@ namespace BloodSearch.Models.Api {
             var jData = JsonConvert.SerializeObject(parameters);
             return ApiProvider.ExecutePostSync<GetOffersResult>(url, jData);
         }
+        #endregion
 
+        #region User
+        private static string GetToken(HttpContext context) {
+            try {
+                var model = context.Request.Cookies.Get("token");
+                return model == null ? "" : model.Value;
+            } catch (Exception ex) {
+                return "";
+            }
+        }
 
-        #region Users
         public static LoginResult Login(HttpContext context, string email, string passwordHash) {
             var url = $"{SchemeAndHost}/api/user/login";
             var model = new LoginModel {
@@ -67,6 +77,19 @@ namespace BloodSearch.Models.Api {
 
             var parameters = JsonConvert.SerializeObject(model);
             return ApiProvider.ExecutePostSync<BaseResponse>(url, parameters);
+        }
+
+        public static UserResult GetUserByContext(HttpContext context) {
+            var url = $"{SchemeAndHost}/api/user/get-user-by-context";
+            var model = new AuthRequest { Token = GetToken(context) };
+            var parameters = JsonConvert.SerializeObject(model);
+            return ApiProvider.ExecutePostSync<UserResult>(url, parameters);
+        }
+
+        public static UserResult GetUserById(int userId) {
+            var url = $"{SchemeAndHost}/api/user/get-user-by-id";
+            var parameters = JsonConvert.SerializeObject(userId);
+            return ApiProvider.ExecutePostSync<UserResult>(url, parameters);
         }
         #endregion
     }

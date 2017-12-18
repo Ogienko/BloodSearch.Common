@@ -56,6 +56,7 @@
     <Compile Include="Models\Auth\Request\RegistrationModel.cs" />
     <Compile Include="Models\Auth\ResponseError.cs" />
     <Compile Include="Models\Auth\Response\LoginResult.cs" />
+    <Compile Include="Models\Auth\Response\UserResult.cs" />
     <Compile Include="Models\Geo\GeoAddress.cs" />
     <Compile Include="Models\Geo\GeoPoint.cs" />
     <Compile Include="Models\Offers\CategoryEnum.cs" />
