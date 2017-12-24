@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BloodSearchModelsRemoteProvider.cs" />
+    <Compile Include="Models\Auth\Request\EditUserRequest.cs" />
     <Compile Include="Models\Auth\Request\LoginModel.cs" />
     <Compile Include="Models\Auth\Request\RegistrationModel.cs" />
     <Compile Include="Models\Auth\ResponseError.cs" />

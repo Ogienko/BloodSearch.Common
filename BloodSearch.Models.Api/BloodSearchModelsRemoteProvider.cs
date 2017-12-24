@@ -6,6 +6,7 @@ using BloodSearch.Models.Api.Models.Auth.Response;
 using BloodSearch.Models.Api.Models.Offers.Requests;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.Web;
 
 namespace BloodSearch.Models.Api {
@@ -26,6 +27,12 @@ namespace BloodSearch.Models.Api {
             var url = $"{SchemeAndHost}/api/offers/get?id={id}";
             var str = ApiProvider.ExecuteGetAsStringSync(url);
             return JsonConvert.DeserializeObject<GetOfferResult>(str);
+        }
+
+        public static List<GetOfferResult> GetOffersByUser(int userId) {
+            var url = $"{SchemeAndHost}/api/offers/get-by-user?userId={userId}";
+            var str = ApiProvider.ExecuteGetAsStringSync(url);
+            return JsonConvert.DeserializeObject< List<GetOfferResult>>(str);
         }
 
         public static GetOffersResult GetOffers(GetOffersByFiltersParameters parameters) {
@@ -91,6 +98,13 @@ namespace BloodSearch.Models.Api {
             var parameters = JsonConvert.SerializeObject(userId);
             return ApiProvider.ExecutePostSync<UserResult>(url, parameters);
         }
+
+        public static BaseResponse EditUser(EditUserRequest request) {
+            var url = $"{SchemeAndHost}/api/user/edit-user";
+            var parameters = JsonConvert.SerializeObject(request);
+            return ApiProvider.ExecutePostSync<BaseResponse>(url, parameters);
+        }
+
         #endregion
     }
 }
