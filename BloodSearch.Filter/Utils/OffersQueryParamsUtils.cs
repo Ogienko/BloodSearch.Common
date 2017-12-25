@@ -1,6 +1,7 @@
 ﻿using BloodSearch.Core.Extensions;
 using BloodSearch.Filter.Models.Offers;
 using BloodSearch.Models.Api.Models.Offers;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace BloodSearch.Filter.Utils {
@@ -10,17 +11,16 @@ namespace BloodSearch.Filter.Utils {
         public static ParseFilterResult ParseFilterFromQueryParameters(QueryParameters qParams) {
 
             var filter = new SearchFilter {
-                Categories = qParams.Cat.SplitInt().Select(x => MapCategory(x)).ToList(),
-                Region = qParams.Reg.ToPositiveInt() ?? 1,
+                Categories = qParams.Cat.SplitInt().Select(MapCategory).ToList(),
+                RegionId = qParams.Reg.ToPositiveLong(),
                 Sort = qParams.Sort.ToEnum(SearchFilter.SortEnum.Default),
-                Type = qParams.Type.ToEnum(OfferTypeEnum.Donor)
+                Type = MapType(qParams.Type.ToInt()),
+                Statuses = new List<OfferStateEnum> { OfferStateEnum.Published, OfferStateEnum.New }
             };
-
-            filter.Statuses.Add(OfferStateEnum.Published);
 
             var maxRows = 2000;
             var pagingFilter = new PagingFilter();
-            pagingFilter.PageSize = qParams.Ps.ToPositiveInt() ?? 20;
+            pagingFilter.PageSize = qParams.Ps.ToPositiveInt() ?? 10;
             pagingFilter.PageNumber = qParams.P.ToPositiveInt() ?? 1;
             pagingFilter.MaxPageNumber = maxRows / pagingFilter.PageSize;
 
@@ -58,6 +58,20 @@ namespace BloodSearch.Filter.Utils {
             }
 
             return 0;
+        }
+
+        private static OfferTypeEnum MapType(int? type) {
+
+            if (type.HasValue) {
+                switch (type.Value) {
+                    case 1:
+                        return OfferTypeEnum.Donor;
+                    case 2:
+                        return OfferTypeEnum.Recipient;
+                }
+            }
+
+            return OfferTypeEnum.Any;
         }
     }
 }

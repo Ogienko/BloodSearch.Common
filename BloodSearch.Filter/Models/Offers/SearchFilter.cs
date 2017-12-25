@@ -14,16 +14,16 @@ namespace BloodSearch.Filter.Models.Offers {
         }
 
         [JsonProperty("type")]
-        public OfferTypeEnum Type { get; set; } = OfferTypeEnum.Donor;
+        public OfferTypeEnum Type { get; set; }
 
         [JsonProperty("categories")]
         public List<CategoryEnum> Categories { get; set; } = new List<CategoryEnum>();
 
-        [JsonProperty("itemsIds")]
+        [JsonProperty("items-ids")]
         public List<long> ItemsIds { get; set; } = new List<long>();
 
-        [JsonProperty("cities")]
-        public long Region { get; set; }
+        [JsonProperty("region-id")]
+        public long? RegionId { get; set; }
 
         [JsonProperty("sort")]
         [JsonConverter(typeof(StringEnumConverter))]

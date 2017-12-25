@@ -66,9 +66,13 @@
     <Compile Include="Models\Offers\OfferTypeEnum.cs" />
     <Compile Include="Models\Offers\Requests\AddOfferModel.cs" />
     <Compile Include="Models\Offers\Requests\AddOfferResult.cs" />
+    <Compile Include="Models\Offers\Requests\DeleteOfferModel.cs" />
+    <Compile Include="Models\Offers\Requests\DeleteOfferResult.cs" />
     <Compile Include="Models\Offers\Requests\GetOfferResult.cs" />
     <Compile Include="Models\Offers\Requests\GetOffersByFiltersParameters.cs" />
     <Compile Include="Models\Offers\Requests\GetOffersResult.cs" />
+    <Compile Include="Models\Offers\Requests\PublishOfferModel.cs" />
+    <Compile Include="Models\Offers\Requests\PublishOfferResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

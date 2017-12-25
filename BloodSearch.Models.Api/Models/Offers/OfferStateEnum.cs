@@ -8,6 +8,9 @@ namespace BloodSearch.Models.Api.Models.Offers {
         Published = 1,
 
         [EnumMember(Value = "deleted")]
-        Deleted = 2
+        Deleted = 2,
+
+        [EnumMember(Value = "new")]
+        New = 3
     }
 }

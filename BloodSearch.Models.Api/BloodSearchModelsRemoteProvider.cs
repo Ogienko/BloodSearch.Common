@@ -23,6 +23,18 @@ namespace BloodSearch.Models.Api {
             return ApiProvider.ExecutePostSync<AddOfferResult>(url, jData);
         }
 
+        public static DeleteOfferResult DeleteOffer(DeleteOfferModel model) {
+            var url = $"{SchemeAndHost}/api/offers/delete-offer";
+            var jData = JsonConvert.SerializeObject(model);
+            return ApiProvider.ExecutePostSync<DeleteOfferResult>(url, jData);
+        }
+
+        public static PublishOfferResult PublishOffer(PublishOfferModel model) {
+            var url = $"{SchemeAndHost}/api/offers/publish-offer";
+            var jData = JsonConvert.SerializeObject(model);
+            return ApiProvider.ExecutePostSync<PublishOfferResult>(url, jData);
+        }
+
         public static GetOfferResult GetOffer(long id) {
             var url = $"{SchemeAndHost}/api/offers/get?id={id}";
             var str = ApiProvider.ExecuteGetAsStringSync(url);
@@ -32,7 +44,7 @@ namespace BloodSearch.Models.Api {
         public static List<GetOfferResult> GetOffersByUser(int userId) {
             var url = $"{SchemeAndHost}/api/offers/get-by-user?userId={userId}";
             var str = ApiProvider.ExecuteGetAsStringSync(url);
-            return JsonConvert.DeserializeObject< List<GetOfferResult>>(str);
+            return JsonConvert.DeserializeObject<List<GetOfferResult>>(str);
         }
 
         public static GetOffersResult GetOffers(GetOffersByFiltersParameters parameters) {

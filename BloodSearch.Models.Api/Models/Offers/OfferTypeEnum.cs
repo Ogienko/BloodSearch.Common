@@ -8,6 +8,9 @@ namespace BloodSearch.Models.Api.Models.Offers {
         Donor = 1,
 
         [EnumMember(Value = "recipient")]
-        Recipient = 2
+        Recipient = 2,
+
+        [EnumMember(Value = "any")]
+        Any = 3
     }
 }

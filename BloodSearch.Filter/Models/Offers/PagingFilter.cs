@@ -4,7 +4,7 @@ namespace BloodSearch.Filter.Models.Offers {
 
     public class PagingFilter {
 
-        public const int DefaultPageSize = 20;
+        public const int DefaultPageSize = 10;
 
         public int PageNumber { get; set; } = 1;
 
